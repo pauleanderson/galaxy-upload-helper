@@ -12,6 +12,7 @@ for line in lines:
                 username = fields[0]
 		email = fields[1]
 		os.system("mkdir "+galaxy_upload_dir+"/"+email)
+		os.system("mkdir "+galaxy_upload_dir+"/"+email+"/download")
 		os.system("chown -R "+username+":galaxy "+galaxy_upload_dir+"/"+email)
 		os.system("chmod -R gu+rwx "+galaxy_upload_dir+"/"+email)
 		os.system("chmod -R o-rwx "+galaxy_upload_dir+"/"+email)

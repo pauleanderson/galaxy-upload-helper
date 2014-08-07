@@ -1,0 +1,20 @@
+<tool id="prepare_for_download" name="Prepare for Download" version="1" >
+	<description>
+		Prepare a file for download by moving it and renaming it.
+	</description>
+	<command interpreter="python">
+                prepare.py '$dataset' '$file_name' '$userEmail'
+	</command>
+
+	<inputs>
+		<param type="data" label="Dataset" name="dataset" size="200"/>
+		<param type="text" label="File Name" name="file_name" size="200"/>
+	</inputs>
+
+	<outputs>
+                <data name="completed" label="Prepared ${file_name}" from_work_dir="completed"/>
+	</outputs>
+	
+	<help>
+	</help>
+</tool>
