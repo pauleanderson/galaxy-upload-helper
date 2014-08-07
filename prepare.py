@@ -14,7 +14,7 @@ for line in lines:
         if len(fields) >= 2:
                 lookup[fields[1]] = fields[0]
 
-cmd = ["cp"] + [dataset] + [galaxy_upload_dir+"/"+email+"/download/"+filename]
+cmd = ["ln"] + [dataset] + [galaxy_upload_dir+"/"+email+"/download/"+filename]
 result = subprocess.Popen( cmd, stdout=subprocess.PIPE)
 
 stdout, stderr = result.communicate()
