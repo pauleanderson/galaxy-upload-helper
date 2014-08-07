@@ -11,5 +11,6 @@ Upload:
 4. Now you can go to Galaxy, click 'Get Data'. Then click 'Upload File'. Then select the file of our choice.
 
 Download:
+
 1. Got to Galaxy. Click 'Get Data'. Select 'Prepare for Download'. Pick a dataset and a name that you wish to use for download purposes. Click run.
 2. After this is finished, open your sftp program and log into the cluster using your username. Once you've done this, change directories to /mnt/gv1/galaxy-upload/<email address from Galaxy>/download. Your file will be visible there.
