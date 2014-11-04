@@ -5,7 +5,7 @@ from os.path import isfile, join
 import sys
 import os
 
-email_file_lookup = '/etc/galaxy-upload-helper/emails.txt'
+email_file_lookup = '/mnt/gv1/galaxy-upload/emails.txt'
 galaxy_upload_dir = '/mnt/gv1/galaxy-upload'
 
 lookup = {}

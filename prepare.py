@@ -3,8 +3,8 @@ dataset = sys.argv[1]
 filename = sys.argv[2]
 email = sys.argv[3]
 
-galaxy_upload_dir = '/mnt/gv1/galaxy-upload'
-email_file_lookup = '/etc/galaxy-upload-helper/emails.txt'
+galaxy_download_dir = '/mnt/gv1/galaxy-download'
+email_file_lookup = '/mnt/gv1/galaxy-upload/emails.txt'
 
 lookup = {}
 f = open(email_file_lookup,'r')
@@ -14,7 +14,7 @@ for line in lines:
         if len(fields) >= 2:
                 lookup[fields[1]] = fields[0]
 
-cmd = ["ln"] + [dataset] + [galaxy_upload_dir+"/"+email+"/download/"+filename]
+cmd = ["ln"] + [dataset] + [galaxy_download_dir+"/"+email+"/"+filename]
 result = subprocess.Popen( cmd, stdout=subprocess.PIPE)
 
 stdout, stderr = result.communicate()
@@ -23,7 +23,7 @@ if stdout != None:
 if stderr != None:
   print >> sys.stderr, stderr
 
-cmd = ["chown"] + [lookup[email]] + [galaxy_upload_dir+"/"+email+"/download/"+filename]
+cmd = ["chown"] + [lookup[email]+":"+lookup[email]] + [galaxy_download_dir+"/"+email+"/"+filename]
 result = subprocess.Popen( cmd, stdout=subprocess.PIPE)
 stdout, stderr = result.communicate()
 
