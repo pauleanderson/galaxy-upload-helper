@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import sys, subprocess, os
 dataset = sys.argv[1]
 filename = sys.argv[2]

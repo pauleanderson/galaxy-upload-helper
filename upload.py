@@ -25,4 +25,4 @@ if len(sys.argv) < 2:
 mypath = sys.argv[1]
 onlyfiles = [ f for f in listdir(mypath) if isfile(join(mypath,f)) ]
 for f in onlyfiles:
-	os.system("mv "+mypath+"/"+f+" "+galaxy_upload_dir+"/"+lookup[username]+"/")
+	os.system("cp "+mypath+"/"+f+" "+galaxy_upload_dir+"/"+lookup[username]+"/")
