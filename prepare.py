@@ -23,13 +23,13 @@ if stdout != None:
 if stderr != None:
   print >> sys.stderr, stderr
 
-cmd = ["chown"] + [lookup[email]+":"+lookup[email]] + [galaxy_download_dir+"/"+email+"/"+filename]
-result = subprocess.Popen( cmd, stdout=subprocess.PIPE)
-stdout, stderr = result.communicate()
+#cmd = ["chown"] + [lookup[email]+":"+lookup[email]] + [galaxy_download_dir+"/"+email+"/"+filename]
+#result = subprocess.Popen( cmd, stdout=subprocess.PIPE)
+#stdout, stderr = result.communicate()
 
-if stdout != None:
-  print stdout
-if stderr != None:
-  print >> sys.stderr, stderr
+#if stdout != None:
+#  print stdout
+#if stderr != None:
+#  print >> sys.stderr, stderr
 
 os.system("touch completed")
