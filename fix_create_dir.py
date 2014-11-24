@@ -16,7 +16,7 @@ for line in lines:
 		os.system("mkdir "+galaxy_upload_dir+"/"+email)
 		os.system("mkdir "+galaxy_download_dir+"/"+email)
 		os.system("mkdir "+user_dir+"/"+username)
-		os.system("ln -s "+user_dir+"/"+username+" /home/"+username+"/data")
+		#os.system("ln -s "+user_dir+"/"+username+" /home/"+username+"/data")
 		os.system("chown -R "+username+":galaxy "+galaxy_upload_dir+"/"+email)
 		os.system("chown -R "+username+":galaxy "+galaxy_download_dir+"/"+email)
 		os.system("chown -R "+username+":"+username+" "+user_dir+"/"+username)
