@@ -13,15 +13,17 @@ for line in lines:
         if len(fields) >= 2:
                 username = fields[0]
 		email = fields[1]
-		os.system("mkdir "+galaxy_upload_dir+"/"+email)
-		os.system("mkdir "+galaxy_download_dir+"/"+email)
-		os.system("mkdir "+user_dir+"/"+username)
-		#os.system("ln -s "+user_dir+"/"+username+" /home/"+username+"/data")
-		os.system("chown -R "+username+":galaxy "+galaxy_upload_dir+"/"+email)
-		os.system("chown -R "+username+":galaxy "+galaxy_download_dir+"/"+email)
-		os.system("chown -R "+username+":"+username+" "+user_dir+"/"+username)
-		os.system("chmod -R gu+srwx "+galaxy_upload_dir+"/"+email)
+		if not os.path.isdir(galaxy_upload_dir+"/"+email):
+			os.system("mkdir "+galaxy_upload_dir+"/"+email)
+		if not os.path.isdir(galaxy_download_dir+"/"+email):
+			os.system("mkdir "+galaxy_download_dir+"/"+email)
+		if not os.path.isdir(user_dir+"/"+username):
+			os.system("mkdir "+user_dir+"/"+username)
+		os.system("chown "+username+":galaxy "+galaxy_upload_dir+"/"+email)
+		os.system("chown "+username+":galaxy "+galaxy_download_dir+"/"+email)
+		os.system("chown "+username+":"+username+" "+user_dir+"/"+username)
+		os.system("chmod -R gu+srw "+galaxy_upload_dir+"/"+email)
 		os.system("chmod -R o-rwx "+galaxy_upload_dir+"/"+email)
-		os.system("chmod -R gu+srwx "+galaxy_download_dir+"/"+email)
-		os.system("chmod -R o-rwx "+galaxy_download_dir+"/"+email)
+		os.system("chmod gu+srwx "+galaxy_download_dir+"/"+email)
+		os.system("chmod o-rwx "+galaxy_download_dir+"/"+email)
 
